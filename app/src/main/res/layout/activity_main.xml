@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.gustavoterras.foo.app.MainViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/frag_component_1"
+            android:name="br.com.gustavoterras.foo.lib.common.EventsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+
+        <Button
+            app:fadeView="@{viewModel.visibility}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="@{() -> viewModel.bang()}"
+            android:text="BANG!" />
+
+    </FrameLayout>
+
+</layout>
